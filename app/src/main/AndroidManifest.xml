@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/safagro"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/safagro"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WeatherAppSaf"
+        tools:targetApi="31">
+        <activity
+            android:name=".MarketPlace"
+            android:exported="false" />
+        <activity
+            android:name=".PIDetail"
+            android:exported="false" />
+        <activity
+            android:name=".PestIdentification"
+            android:exported="false" />
+        <activity
+            android:name=".FinancialManagement"
+            android:exported="false" />
+        <activity
+            android:name=".PestIdentityCamera"
+            android:exported="false" />
+        <activity
+            android:name=".SoilManagement"
+            android:exported="false" />
+        <activity
+            android:name=".CropManagement"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LanguageScreen"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".WeatherPage"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

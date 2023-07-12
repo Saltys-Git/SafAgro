@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SoilManagement">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/soil_screen_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/soil_image_first"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/soil_image_one"
+            app:layout_constraintDimensionRatio="2.5:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <ImageView
+            android:id="@+id/soil_text_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/soil_screen_middle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soil_image_first" />
+
+        <ImageView
+            android:id="@+id/soil_image_second"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/soil_image_two"
+            app:layout_constraintDimensionRatio="2.5:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soil_text_one" />
+
+        <TextView
+            android:id="@+id/soil_text_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/soil_text_end"
+            android:padding="32dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soil_image_second" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

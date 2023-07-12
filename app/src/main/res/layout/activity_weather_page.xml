@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WeatherPage">
+
+    <AutoCompleteTextView
+        android:id="@+id/search_box_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="21dp"
+        android:background="@drawable/custom_input"
+        android:drawableEnd="@drawable/custom_search_icon"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_box_homepage">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/current_weather_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="21dp"
+                    android:padding="25dp"
+                    android:background="@drawable/current_weather_box_bg"
+                    android:orientation="vertical">
+
+                    <!--cwb = current weather box-->
+
+                    <TextView
+                        android:id="@+id/cwbld"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text=""
+                        android:letterSpacing="0.02"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/cwbwcp"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintBottom_toTopOf="@+id/cwbwct"
+                        app:layout_constraintDimensionRatio="1.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cwbld" />
+
+                    <TextView
+                        android:id="@+id/cwbh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/cwbwcp"
+                        app:layout_constraintStart_toEndOf="@+id/cwbwcp"
+                        app:layout_constraintTop_toTopOf="@+id/cwbwcp"
+                        app:layout_constraintVertical_bias="0.40" />
+
+                    <TextView
+                        android:id="@+id/cwbw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@+id/cwbwcp"
+                        app:layout_constraintTop_toBottomOf="@+id/cwbh" />
+
+                    <TextView
+                        android:id="@+id/cwbwct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:letterSpacing="0.02"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/cwbwcp" />
+
+                    <TextView
+                        android:id="@+id/cwbct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:letterSpacing="0.02"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cwbt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:letterSpacing="0.02"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="32sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/cwbwcp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/cwbwcp" />
+
+                    <TextView
+                        android:id="@+id/cwbut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:letterSpacing="0.02"
+                        android:drawableEnd="@drawable/ic_baseline_refresh_24"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="21dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Last 7 Days"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:orientation="horizontal">
+                    <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ldc1"
+                            android:layout_width="80dp"
+                            android:layout_height="120dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="21dp"
+                            app:cardElevation="4dp"
+                            app:cardCornerRadius="10dp"
+                            android:foreground="@drawable/last_days_card"
+                            android:orientation="vertical">
+                            <!--ldc = last days card -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ildc1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp" />
+
+                                <TextView
+                                    android:id="@+id/tldc1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/dldc1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto"
+                                    android:letterSpacing="0.02"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ldc2"
+                            android:layout_width="80dp"
+                            android:layout_height="120dp"
+                            android:layout_marginHorizontal="10dp"
+                            app:cardElevation="4dp"
+                            app:cardCornerRadius="10dp"
+                            android:foreground="@drawable/last_days_card"
+                            android:orientation="vertical">
+                            <!--ldc = last days card -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ildc2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"/>
+
+
+                                <TextView
+                                    android:id="@+id/tldc2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/dldc2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto"
+                                    android:letterSpacing="0.02"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp" />
+
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ldc3"
+                            android:layout_width="80dp"
+                            android:layout_height="120dp"
+                            android:layout_marginHorizontal="10dp"
+                            app:cardElevation="4dp"
+                            app:cardCornerRadius="10dp"
+                            android:foreground="@drawable/last_days_card"
+                            android:orientation="vertical">
+                            <!--ldc = last days card -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                    android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/ildc3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp" />
+
+                                <TextView
+                                    android:id="@+id/tldc3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/dldc3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto"
+                                    android:letterSpacing="0.02"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ldc4"
+                            android:layout_width="80dp"
+                            android:layout_height="120dp"
+                            android:layout_marginHorizontal="10dp"
+                            app:cardElevation="4dp"
+                            app:cardCornerRadius="10dp"
+                            android:foreground="@drawable/last_days_card"
+                            android:orientation="vertical">
+                            <!--ldc = last days card -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                    android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/ildc4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp" />
+
+                                <TextView
+                                    android:id="@+id/tldc4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/dldc4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto"
+                                    android:letterSpacing="0.02"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ldc5"
+                            android:layout_width="80dp"
+                            android:layout_height="120dp"
+                            android:layout_marginHorizontal="10dp"
+                            app:cardElevation="4dp"
+                            app:cardCornerRadius="10dp"
+                            android:foreground="@drawable/last_days_card"
+                            android:orientation="vertical">
+                            <!--ldc = last days card -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+
+                                <ImageView
+                                    android:id="@+id/ildc5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp" />
+                                <TextView
+                                    android:id="@+id/tldc5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/dldc5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto"
+                                    android:letterSpacing="0.02"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp" />
+
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ldc6"
+                            android:layout_width="80dp"
+                            android:layout_height="120dp"
+                            android:layout_marginHorizontal="10dp"
+                            app:cardElevation="4dp"
+                            app:cardCornerRadius="10dp"
+                            android:foreground="@drawable/last_days_card"
+                            android:orientation="vertical">
+                            <!--ldc = last days card -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                    android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/ildc6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp" />
+
+                                <TextView
+                                    android:id="@+id/tldc6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/dldc6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto"
+                                    android:letterSpacing="0.02"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ldc7"
+                            android:layout_width="80dp"
+                            android:layout_height="120dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="21dp"
+                            app:cardElevation="4dp"
+                            app:cardCornerRadius="10dp"
+                            android:foreground="@drawable/last_days_card"
+                            android:orientation="vertical">
+                            <!--ldc = last days card -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                    android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/ildc7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp" />
+
+                                <TextView
+                                    android:id="@+id/tldc7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/dldc7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto"
+                                    android:letterSpacing="0.02"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Future weather"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <!--fdc = future days card -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fdc1"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="21dp"
+                    android:background="@drawable/future_days_card"
+                    android:layout_marginBottom="15dp">
+                    <ImageView
+                        android:id="@+id/fdcp1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintDimensionRatio="1.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcc1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:letterSpacing="0.1"
+                        android:textColor="#274147"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcd1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/rowdies"
+                        android:letterSpacing="0.02"
+                        android:textColor="#4E3939"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp1"
+                        app:layout_constraintTop_toBottomOf="@+id/fdcc1" />
+
+                    <TextView
+                        android:id="@+id/fdct1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fdcv1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/fdcv1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/ic_baseline_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fdc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="21dp"
+                    android:background="@drawable/future_days_card"
+                    android:layout_marginBottom="15dp">
+                    <ImageView
+                        android:id="@+id/fdcp2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintDimensionRatio="1.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcc2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:letterSpacing="0.1"
+                        android:textColor="#274147"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcd2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/rowdies"
+                        android:letterSpacing="0.02"
+                        android:textColor="#4E3939"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp2"
+                        app:layout_constraintTop_toBottomOf="@+id/fdcc2" />
+
+                    <TextView
+                        android:id="@+id/fdct2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fdcv2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/fdcv2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/ic_baseline_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fdc3"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="21dp"
+                    android:background="@drawable/future_days_card"
+                    android:layout_marginBottom="15dp">
+                    <ImageView
+                        android:id="@+id/fdcp3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintDimensionRatio="1.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcc3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:letterSpacing="0.1"
+                        android:textColor="#274147"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcd3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/rowdies"
+                        android:letterSpacing="0.02"
+                        android:textColor="#4E3939"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp3"
+                        app:layout_constraintTop_toBottomOf="@+id/fdcc3" />
+
+                    <TextView
+                        android:id="@+id/fdct3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fdcv3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/fdcv3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/ic_baseline_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fdc4"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="21dp"
+                    android:background="@drawable/future_days_card"
+                    android:layout_marginBottom="15dp">
+                    <ImageView
+                        android:id="@+id/fdcp4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintDimensionRatio="1.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcc4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:letterSpacing="0.1"
+                        android:textColor="#274147"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp4"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcd4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/rowdies"
+                        android:letterSpacing="0.02"
+                        android:textColor="#4E3939"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp4"
+                        app:layout_constraintTop_toBottomOf="@+id/fdcc4" />
+
+                    <TextView
+                        android:id="@+id/fdct4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fdcv4"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/fdcv4"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/ic_baseline_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fdc5"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="21dp"
+                    android:background="@drawable/future_days_card"
+                    android:layout_marginBottom="15dp">
+                    <ImageView
+                        android:id="@+id/fdcp5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintDimensionRatio="1.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcc5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:letterSpacing="0.1"
+                        android:textColor="#274147"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp5"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcd5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/rowdies"
+                        android:letterSpacing="0.02"
+                        android:textColor="#4E3939"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp5"
+                        app:layout_constraintTop_toBottomOf="@+id/fdcc5" />
+
+                    <TextView
+                        android:id="@+id/fdct5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fdcv5"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/fdcv5"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/ic_baseline_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fdc6"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="21dp"
+                    android:background="@drawable/future_days_card"
+                    android:layout_marginBottom="15dp">
+                    <ImageView
+                        android:id="@+id/fdcp6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintDimensionRatio="1.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcc6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:letterSpacing="0.1"
+                        android:textColor="#274147"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp6"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcd6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/rowdies"
+                        android:letterSpacing="0.02"
+                        android:textColor="#4E3939"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp6"
+                        app:layout_constraintTop_toBottomOf="@+id/fdcc6" />
+
+                    <TextView
+                        android:id="@+id/fdct6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fdcv6"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/fdcv6"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/ic_baseline_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fdc7"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="21dp"
+                    android:background="@drawable/future_days_card"
+                    android:layout_marginBottom="15dp">
+                    <ImageView
+                        android:id="@+id/fdcp7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintDimensionRatio="1.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcc7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:letterSpacing="0.1"
+                        android:textColor="#274147"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp7"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fdcd7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/rowdies"
+                        android:letterSpacing="0.02"
+                        android:textColor="#4E3939"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@+id/fdcp7"
+                        app:layout_constraintTop_toBottomOf="@+id/fdcc7" />
+
+                    <TextView
+                        android:id="@+id/fdct7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/roboto"
+                        android:letterSpacing="0.02"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fdcv7"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/fdcv7"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/ic_baseline_arrow_right_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
